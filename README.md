@@ -3,7 +3,7 @@
 
 Projeto realizado na disciplina Engenharia Unifica II UFABC
 
-* Sensor UltrassÔnico HC-SR04
+* Sensor Ultrassônico HC-SR04
 * Módulo RR3 e RT4 433,92 MHz
 * Arduino Nano
 * Arduino Uno
