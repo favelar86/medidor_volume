@@ -1,5 +1,7 @@
+
 #include <VirtualWire.h>
 #include <Ultrasonic.h>
+#include <string.h>
 
 #define Size 2
 
@@ -13,8 +15,8 @@ byte TX_buffer[Size];
 void setup () {
   Serial.begin(9600);
 
-  vw_set_tx_pin(2); 
-  vw_setup(4000); 
+  vw_set_tx_pin(2);
+  vw_setup(4000);
 }
 
 void loop () {
@@ -25,6 +27,12 @@ void loop () {
 
   Serial.print("Distancia em cm: ");
   Serial.println(cmMsec);
+
+  char mensagem[8];
+  sprintf(mensagem, "Distancia: %d cm", cmMsec);
+
+  Serial.println(mensagem);
+
   delay(1000);
 
   TX_buffer[0] = lowByte(cmMsec);
@@ -32,5 +40,4 @@ void loop () {
 
   vw_send(TX_buffer, Size);
   vw_wait_tx();
-
 }
